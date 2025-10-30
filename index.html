@@ -10,45 +10,63 @@
       margin: 0;
       padding: 0;
       font-family: 'Rubik', sans-serif;
-      background: linear-gradient(to bottom, #fdf6f0, #f4ede4);
+      background: #f8f5f2;
       color: #4a3c31;
       text-align: center;
       direction: rtl;
+      scroll-behavior: smooth;
+    }
+
+    .hero-container {
+      padding: 40px 20px 0;
     }
 
     .hero {
-      width: 100%;
-      height: 80vh;
-      background-image: url('https://static.wixstatic.com/media/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg/v1/fill/w_1440,h_801,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg');
+      width: 90%;
+      max-width: 1100px;
+      height: 70vh;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 6px solid #e7ddd4;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.15)),
+        url('https://static.wixstatic.com/media/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg/v1/fill/w_1440,h_801,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg');
       background-size: cover;
       background-position: center;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.3);
-    }
-
-    h1 {
+    .hero h1 {
       font-family: 'Amatic SC', cursive;
-      font-size: 80px;
-      margin-top: 80px;
-      color: #8a5a44;
+      font-size: 90px;
+      margin: 0;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      letter-spacing: 1px;
     }
 
-    p {
-      font-size: 20px;
-      line-height: 1.8;
-      max-width: 700px;
-      margin: 0 auto 20px;
-      padding: 0 20px;
+    .hero p {
+      font-size: 22px;
+      margin-top: 20px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
 
     .section {
-      margin-top: 60px;
+      background: #f8f5f2;
+      padding: 80px 20px;
+      border-top: 1px solid #e7ddd4;
+    }
+
+    .section p {
+      font-size: 20px;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      color: #4a3c31;
     }
 
     .button {
@@ -56,7 +74,7 @@
       background-color: #8a5a44;
       color: #fff;
       text-decoration: none;
-      padding: 18px 40px;
+      padding: 16px 36px;
       border-radius: 40px;
       font-size: 22px;
       font-weight: 500;
@@ -66,7 +84,7 @@
 
     .button:hover {
       background-color: #a36b54;
-      transform: scale(1.05);
+      transform: translateY(-3px);
     }
 
     footer {
@@ -75,14 +93,39 @@
       color: #7a6a5a;
       padding-bottom: 40px;
     }
+
+    /* דף פרטים על המדריכות */
+    #guides {
+      background: #fdfaf7;
+      border-top: 1px solid #e7ddd4;
+      padding: 80px 20px;
+      display: none;
+    }
+
+    #guides h2 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 60px;
+      color: #8a5a44;
+      margin-bottom: 40px;
+    }
+
+    #guides p {
+      font-size: 20px;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      color: #4a3c31;
+    }
   </style>
 </head>
 <body>
 
-  <div class="hero"></div>
-
-  <h1>🌿 ריטריט נשים בצפון 🌿</h1>
-  <p><strong>סוף שבוע של נשימה, חיבור, תנועה ואור</strong></p>
+  <div class="hero-container">
+    <div class="hero">
+      <h1>🌿 ריטריט נשים בצפון 🌿</h1>
+      <p>סוף שבוע של נשימה, חיבור, תנועה ואור</p>
+    </div>
+  </div>
 
   <div class="section">
     <p>בואי לעצור רגע.<br>
@@ -101,10 +144,17 @@
     בלי מסכות. בלי מאמץ. פשוט להיות.</p>
 
     <a class="button" href="https://wa.me/972544799145" target="_blank">להרשמה</a>
+    <br><br>
+    <a class="button" href="#guides" onclick="document.getElementById('guides').style.display='block'; window.scrollTo({top: document.getElementById('guides').offsetTop, behavior:'smooth'});">פרטים על המדריכות</a>
+  </div>
+
+  <div id="guides">
+    <h2>המדריכות</h2>
+    <p>✨ <strong>הכניסי כאן את הטקסט על המדריכות</strong> ✨<br>
+    (כאן אפשר לכתוב על כל אחת מהן, הרקע, הדרך, ומה היא מביאה למרחב)</p>
   </div>
 
   <footer>©️ 2025 ריטריט נשים בצפון</footer>
 
 </body>
 </html>
-
