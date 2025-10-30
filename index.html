@@ -3,70 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ריטריט נשים בצפון</title>
+  <title>🌿 ריטריט נשים בצפון 🌿</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Rubik', sans-serif;
-      background: #f8f5f2;
+      background: linear-gradient(to bottom, #fdf6f0, #f4ede4);
       color: #4a3c31;
       text-align: center;
       direction: rtl;
-      scroll-behavior: smooth;
     }
 
-    .hero-container {
-      padding: 40px 20px 0;
-    }
-
-    .hero {
-      width: 90%;
-      max-width: 1100px;
-      height: 70vh;
-      margin: 0 auto;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 6px solid #e7ddd4;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.15)),
-        url('https://static.wixstatic.com/media/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg/v1/fill/w_1440,h_801,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-    }
-
-    .hero h1 {
+    h1 {
       font-family: 'Amatic SC', cursive;
-      font-size: 90px;
-      margin: 0;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      letter-spacing: 1px;
+      font-size: 80px;
+      margin-top: 60px;
+      color: #8a5a44;
     }
 
-    .hero p {
-      font-size: 22px;
-      margin-top: 20px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    }
-
-    .section {
-      background: #f8f5f2;
-      padding: 80px 20px;
-      border-top: 1px solid #e7ddd4;
-    }
-
-    .section p {
+    p {
       font-size: 20px;
       line-height: 1.8;
       max-width: 700px;
-      margin: 0 auto 25px;
-      color: #4a3c31;
+      margin: 0 auto 20px;
+      padding: 0 20px;
+    }
+
+    .section {
+      margin-top: 60px;
+    }
+
+    img {
+      width: 90%;
+      max-width: 900px;
+      border-radius: 16px;
+      border: 2px solid #e5d8cc;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-top: 40px;
     }
 
     .button {
@@ -74,7 +49,7 @@
       background-color: #8a5a44;
       color: #fff;
       text-decoration: none;
-      padding: 16px 36px;
+      padding: 18px 40px;
       border-radius: 40px;
       font-size: 22px;
       font-weight: 500;
@@ -84,21 +59,77 @@
 
     .button:hover {
       background-color: #a36b54;
-      transform: translateY(-3px);
+      transform: scale(1.05);
     }
 
-    .text-link {
-      display: inline-block;
-      color: #7a6a5a;
+    /* טופס הרשמה */
+    form {
+      display: none;
+      max-width: 400px;
+      margin: 30px auto;
+      text-align: right;
+      background-color: #fff7f1;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #5a4635;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #d5c7b8;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #8a5a44;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 40px;
       font-size: 18px;
-      text-decoration: none;
-      margin-top: 25px;
-      transition: 0.3s;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    .text-link:hover {
+    button:hover {
+      background-color: #a36b54;
+    }
+
+    /* לינק מדריכות */
+    .details-link {
+      display: block;
+      margin-top: 60px;
+      color: #7f7f7f;
+      font-size: 20px;
+      text-decoration: none;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    .details-link:hover {
       color: #4a3c31;
-      letter-spacing: 0.5px;
+    }
+
+    .details {
+      display: none;
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: #fff9f6;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      text-align: right;
     }
 
     footer {
@@ -107,39 +138,14 @@
       color: #7a6a5a;
       padding-bottom: 40px;
     }
-
-    /* דף פרטים על המדריכות */
-    #guides {
-      background: #fdfaf7;
-      border-top: 1px solid #e7ddd4;
-      padding: 80px 20px;
-      display: none;
-    }
-
-    #guides h2 {
-      font-family: 'Amatic SC', cursive;
-      font-size: 60px;
-      color: #8a5a44;
-      margin-bottom: 40px;
-    }
-
-    #guides p {
-      font-size: 20px;
-      line-height: 1.8;
-      max-width: 700px;
-      margin: 0 auto 25px;
-      color: #4a3c31;
-    }
   </style>
 </head>
 <body>
 
-  <div class="hero-container">
-    <div class="hero">
-      <h1>🌿 ריטריט נשים בצפון 🌿</h1>
-      <p>סוף שבוע של נשימה, חיבור, תנועה ואור</p>
-    </div>
-  </div>
+  <h1>🌿 ריטריט נשים בצפון 🌿</h1>
+  <p><strong>סוף שבוע של נשימה, חיבור, תנועה ואור</strong></p>
+
+  <img src="https://static.wixstatic.com/media/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg/v1/fill/w_1440,h_801,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg" alt="תמונה מהריטריט">
 
   <div class="section">
     <p>בואי לעצור רגע.<br>
@@ -157,18 +163,36 @@
     <p>זה מרחב לנשים שרוצות לגעת בעצמן מחדש.<br>
     בלי מסכות. בלי מאמץ. פשוט להיות.</p>
 
-    <a class="button" href="https://wa.me/972544799145" target="_blank">להרשמה</a>
-    <br>
-    <a class="text-link" href="#guides" onclick="document.getElementById('guides').style.display='block'; window.scrollTo({top: document.getElementById('guides').offsetTop, behavior:'smooth'});">פרטים על המדריכות</a>
-  </div>
+    <a class="button" href="#" onclick="toggleForm()">להרשמה</a>
 
-  <div id="guides">
-    <h2>המדריכות</h2>
-    <p>✨ <strong>הכניסי כאן את הטקסט על המדריכות</strong> ✨<br>
-    (כאן אפשר לכתוב על כל אחת מהן, הרקע, הדרך, ומה היא מביאה למרחב)</p>
+    <form id="register-form" action="https://hook.us2.make.com/yepnukpeq8frgt6vdua3pf7afceve4je" method="POST">
+      <label for="name">שם מלא:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">אימייל:</label>
+      <input type="email" id="email" name="email" required>
+      <button type="submit">שליחה</button>
+    </form>
+
+    <a class="details-link" onclick="toggleDetails()">פרטים על המדריכות</a>
+
+    <div class="details" id="details-box">
+      <p>גילי ברקן ולילה ושם משפחה כלשהו .</p>
+    </div>
   </div>
 
   <footer>©️ 2025 ריטריט נשים בצפון</footer>
+
+  <script>
+    function toggleForm() {
+      const form = document.getElementById('register-form');
+      form.style.display = form.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function toggleDetails() {
+      const box = document.getElementById('details-box');
+      box.style.display = box.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 
 </body>
 </html>
