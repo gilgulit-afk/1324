@@ -165,7 +165,7 @@
 
     <a class="button" href="#" onclick="toggleForm()">להרשמה</a>
 
-    <form id="register-form" action="https://hook.us2.make.com/yepnukpeq8frgt6vdua3pf7afceve4je" method="POST">
+    <form id="register-form" method="POST">
       <label for="name">שם מלא:</label>
       <input type="text" id="name" name="name" required>
       <label for="email">אימייל:</label>
@@ -176,7 +176,7 @@
     <a class="details-link" onclick="toggleDetails()">פרטים על המדריכות</a>
 
     <div class="details" id="details-box">
-      <p>גילי ברקן ולילה ושם משפחה כלשהו .</p>
+      <p>שלום כאן גילי ברקן לפרטים נוספים :טל:0544799145.</p>
     </div>
   </div>
 
@@ -192,6 +192,23 @@
       const box = document.getElementById('details-box');
       box.style.display = box.style.display === 'block' ? 'none' : 'block';
     }
+
+    // שליחה ל-Make
+    document.getElementById('register-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      await fetch("https://hook.us2.make.com/yepnukpeq8frgt6vdua3pf7afceve4je", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email })
+      });
+
+      alert("נרשמת בהצלחה! נתראה בריטריט 🌿");
+      e.target.reset();
+      e.target.style.display = 'none';
+    });
   </script>
 
 </body>
