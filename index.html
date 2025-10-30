@@ -16,6 +16,22 @@
       direction: rtl;
     }
 
+    .hero {
+      width: 100%;
+      height: 80vh;
+      background-image: url('https://static.wixstatic.com/media/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg/v1/fill/w_1440,h_801,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/282214_e9e8657255ed452497bcd68cc7b892c9~mv2.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.3);
+    }
+
     h1 {
       font-family: 'Amatic SC', cursive;
       font-size: 80px;
@@ -62,6 +78,8 @@
   </style>
 </head>
 <body>
+
+  <div class="hero"></div>
 
   <h1>🌿 ריטריט נשים בצפון 🌿</h1>
   <p><strong>סוף שבוע של נשימה, חיבור, תנועה ואור</strong></p>
