@@ -116,8 +116,8 @@
     .btn.ghost{background:transparent;color:var(--gold-soft);border:1.5px solid var(--gold);box-shadow:none;}
     .btn.ghost:hover{background:rgba(232,180,106,.12);color:#fff;}
 
-    /* ===== reveal ===== */
-    .reveal{opacity:0;transform:translateY(46px);transition:opacity .9s cubic-bezier(.2,.65,.3,1),transform .9s cubic-bezier(.2,.65,.3,1);}
+    /* ===== reveal (only hides when JS is active) ===== */
+    .js .reveal{opacity:0;transform:translateY(46px);transition:opacity .9s cubic-bezier(.2,.65,.3,1),transform .9s cubic-bezier(.2,.65,.3,1);}
     .reveal.in{opacity:1;transform:none;}
     .reveal.d1{transition-delay:.12s;}.reveal.d2{transition-delay:.24s;}.reveal.d3{transition-delay:.36s;}
 
@@ -259,8 +259,21 @@
 
     @keyframes fadeUp{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:none;}}
     @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-    @media(prefers-reduced-motion:reduce){*{animation:none !important;}.reveal{opacity:1;transform:none;}}
+
+    /* === fallback: if gradient-clipped text isn't supported, show a solid color === */
+    @supports not ((-webkit-background-clip:text) or (background-clip:text)){
+      .hero h1,.head h2,footer .big{-webkit-text-fill-color:var(--gold-soft) !important;color:var(--gold-soft) !important;}
+    }
+
+    /* === if motion is reduced, keep everything fully visible (no hidden states) === */
+    @media(prefers-reduced-motion:reduce){
+      *{animation:none !important;transition:none !important;}
+      .reveal,.moon,.eyebrow,.hero h1,.hero .ital,.hero-meta,.hero-cta,.scroll-hint,.wa{
+        opacity:1 !important;transform:none !important;
+      }
+    }
   </style>
+  <script>/* mark JS as active so scroll-reveal only hides content when JS can reveal it */document.documentElement.className+=' js';</script>
 </head>
 <body>
 
